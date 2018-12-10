@@ -50,9 +50,19 @@ a:link, a:hover, a:active, a:visited {
   text-decoration: none;
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 /* ========================================
  レイアウト用
 ========================================= */
+body {
+  background-image: url("images/bg.png");
+  border-top: 5px solid #345c39;
+  font-family: "メイリオ", Meiryo;
+}
+
 .wrapper {
   width: 960px;
   margin: 0 auto;
@@ -64,8 +74,8 @@ a:link, a:hover, a:active, a:visited {
 .header {
   width: 960px;
   height: auto;
-  background-color: plum;
-
+  padding: 20px 0;
+  position: relative;
 }
 
 .header .logo {
@@ -73,7 +83,6 @@ a:link, a:hover, a:active, a:visited {
   padding-left: 53px;
   font-size: 12px;
   color: #555;
-  font-family: "メイリオ", Meiryo;
   line-height: 1;
   height: 49px;
   float: left;
@@ -89,27 +98,45 @@ a:link, a:hover, a:active, a:visited {
 
 .nav {
   float: right;
+  margin-top: 33px;
 }
 
 .nav ul li {
   float: left;
-  margin:25px 0 0 30px;
+  margin-left:30px;
+}
+
+.nav ul li:hover, .nav ul .active {
+  background: url("images/navbar.png") no-repeat center bottom 1px;
+  height: 36px;
 }
 
 .nav ul li a {
   font-size: 16px;
   font-weight: bold;
   color: #734339;
-  letter-spacing: 0.02;
+  height: 26px;
+  display: inline-block;
+
+}
+.nav ul li:hover a, .nav ul .active a {
+  color: #345c39;
+  border-bottom: 4px solid #345c39;
 }
 
-.nav .active a {
+.nav_tel {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+
+/* .nav .active a {
   color: #345c39;
 }
 
 .nav .active {
   border-bottom: 4px solid #345c39;
-  padding-bottom: 5px;
   position: relative;
 }
 
@@ -117,19 +144,22 @@ a:link, a:hover, a:active, a:visited {
   content: url("images/navbar.png");
   position: absolute;
   top: 21px;
-  left: 18px;
+  left: 50%;
 
-}
+} */
+
 
 
 /* ========================================
  メイン画像
 ========================================= */
 .mainimage {
-  width: 960px;
-  height: 300px;
+  width: 950px;
+  height: 290px;
   margin: 20px 0;
   background-color: skyblue;
+  border: 5px solid #fff;
+  box-shadow: 0 2px 7px rgba(84,80,61,0.3);
 }
 
 /* ========================================
@@ -137,10 +167,41 @@ a:link, a:hover, a:active, a:visited {
 ========================================= */
 .left {
   width: 575px;
-  height: 197px;
-  float: left;
+  max-height: 197px;
   margin-right: 20px;
-  background-color: gold;
+  float: left;
+  background-color: #fff;
+  box-shadow: 0 2px 7px rgba(84,80,61,0.3);
+  padding: 10px;
+
+
+}
+
+.subtitle {
+  font-size: 17px;
+  font-weight: bold;
+  color: #734339;
+  border-left: 5px solid #ba3009;
+  padding-left: 10px;
+  letter-spacing: 0.02;
+}
+
+.left ul {
+  overflow-y: scroll;
+  max-height: 145px;
+}
+
+.left ul li time {
+  font-size: 12px;
+  color: #b5b3b3;
+  margin-right: 15px;
+}
+.left ul li {
+  font-size: 13px;
+  color: #927e7a;
+  border-bottom: 1px dotted #d0d0d0;
+  line-height: 32px;
+
 }
 
 /* ========================================
